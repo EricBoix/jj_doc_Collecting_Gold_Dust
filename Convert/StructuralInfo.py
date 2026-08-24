@@ -4,12 +4,19 @@ from pdf_to_markdown import (
     ChapterSplitter,
     MultiplePatternSplitter,
     NameLessSinglePatternSplitter,
+    PublicationInfo,
     StructuralInfoBase,
 )
 from Sanitizer import Sanitizer
 
 
 class StructuralInfo(StructuralInfoBase):
+    publication_info = PublicationInfo(
+        doc_name="collecting-gold-dust",
+        author="Sayadaw U Tejaniya",
+        isbn="978-0-9835844-2-4",
+    )
+
     # The structural information per se with extension specifics
     # - "type" can be "illustration" (with an optional "header" boolean flag)
     # - a "chapter_info" can have an optional "illumination_delimiter"

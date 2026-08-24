@@ -16,7 +16,10 @@ class Converter(ConverterBase):
 
     def __init__(self, pdf_filename, structural_info):
         structural_info.set_page_header_callback(self.get_page_header)
-        document = DocumentWithSubChapters(structural_info.book_title)
+        document = DocumentWithSubChapters(
+            structural_info.book_title,
+            publication_info=getattr(structural_info, "publication_info", None),
+        )
         ConverterBase.__init__(self, pdf_filename, document, structural_info)
 
     def break_document_into_chapters(self):
